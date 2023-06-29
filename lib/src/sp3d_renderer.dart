@@ -335,6 +335,17 @@ class _Sp3dCanvasPainter extends CustomPainter {
         final Sp3dMaterial material = fo.obj.materials[fo.face.materialIndex!];
         final List<Color> colors = w.light.apply(fo.nsn, fo.camTheta, material);
         if (material.isFill) {
+          // 塗りつぶし
+          p.color = colors[0];
+          p.style = PaintingStyle.fill;
+          path.moveTo(fo.vertices2d[0].x, fo.vertices2d[0].y);
+          for (int i = 1; i < fo.vertices2d.length; i++) {
+            path.lineTo(fo.vertices2d[i].x, fo.vertices2d[i].y);
+          }
+          path.close();
+          canvas.drawPath(path, p);
+          path.reset();
+
           if (material.imageIndex != null) {
             if (w.world.paintImages.containsKey(material)) {
               if (w.world.paintImages[material] != null) {
@@ -344,17 +355,6 @@ class _Sp3dCanvasPainter extends CustomPainter {
                     w.world.paintImages[material]!.getPaint());
               }
             }
-          } else {
-            // 塗りつぶし
-            p.color = colors[0];
-            p.style = PaintingStyle.fill;
-            path.moveTo(fo.vertices2d[0].x, fo.vertices2d[0].y);
-            for (int i = 1; i < fo.vertices2d.length; i++) {
-              path.lineTo(fo.vertices2d[i].x, fo.vertices2d[i].y);
-            }
-            path.close();
-            canvas.drawPath(path, p);
-            path.reset();
           }
         }
         // 外枠の描画
