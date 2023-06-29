@@ -99,6 +99,7 @@ class Sp3dWorld {
               convertedImages[obj] = {m.imageIndex!: img};
             }
             Sp3dPaintImage pImg = Sp3dPaintImage(m);
+            pImg.applyPaintStyle();
             pImg.createShader(img);
             paintImages[m] = pImg;
           }

@@ -57,6 +57,43 @@ class Sp3dPaintImage {
   /// Constructor
   Sp3dPaintImage(this.material);
 
+  /// Modify the style parameters of [p] with the data available in [material.paintStyle]
+  void applyPaintStyle() {
+    final style = material.paintStyle;
+    if (style == null) return;
+
+    if (style.color != null) {
+      p..color = style.color!;
+    }
+    if (style.blendMode != null) {
+      p..blendMode = style.blendMode!;
+    }
+    if (style.filterQuality != null) {
+      p..filterQuality = style.filterQuality!;
+    }
+    if (style.invertColors != null) {
+      p..invertColors = style.invertColors!;
+    }
+    if (style.isAntiAlias != null) {
+      p..isAntiAlias = style.isAntiAlias!;
+    }
+    if (style.strokeCap != null) {
+      p..strokeCap = style.strokeCap!;
+    }
+    if (style.strokeJoin != null) {
+      p..strokeJoin = style.strokeJoin!;
+    }
+    if (style.strokeMiterLimit != null) {
+      p..strokeMiterLimit = style.strokeMiterLimit!;
+    }
+    if (style.strokeWidth != null) {
+      p..strokeWidth = style.strokeWidth!;
+    }
+    if (style.style != null) {
+      p..style = style.style!;
+    }
+  }
+
   /// (en)Load the image and create a shader inside.
   ///
   /// (ja)画像を読み込んで内部にシェーダーを作成します。

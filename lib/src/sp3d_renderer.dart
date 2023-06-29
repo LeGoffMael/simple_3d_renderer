@@ -351,7 +351,7 @@ class _Sp3dCanvasPainter extends CustomPainter {
               if (w.world.paintImages[material] != null) {
                 canvas.drawVertices(
                     w.world.paintImages[material]!.updateVertices(fo),
-                    BlendMode.srcOver,
+                    material.blendMode ?? BlendMode.srcOver,
                     w.world.paintImages[material]!.getPaint());
               }
             }

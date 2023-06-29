@@ -13,6 +13,12 @@ dependencies:
   simple_3d: ^10.0.0
   util_simple_3d: ^7.0.0
 
+dependency_overrides:
+  simple_3d:
+    git:
+      url: https://github.com/LeGoffMael/simple_3d
+      ref: feat/sp3d_paint_style
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
